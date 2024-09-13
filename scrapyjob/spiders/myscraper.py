@@ -36,7 +36,6 @@ class MyscraperSpider(scrapy.Spider):
         item['headquarters'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[8]/span[2]/text()').get().strip()
         item['Application_deadline'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[10]/span[2]/text()').get()
         item['technical_requirements'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[5]/div/p/text()').getall()
-
         item['welfare'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[3]/p/text()').getall()
         item['describe'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[4]/div/p/text()').getall()
 

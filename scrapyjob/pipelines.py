@@ -13,6 +13,7 @@ from scrapy.exceptions import DropItem
 import pymongo
 import mysql.connector
 import psycopg2
+import os
 
 class JsonDBJobPipeline:
 
@@ -44,14 +45,16 @@ class CSVDBJobPipeline:
     
 class MongoDBJobPipeline:
     def __init__(self):
-        #Connection String
-        self.client = pymongo.MongoClient('mongodb://localhost:27017')
-        self.db = self.client['dbmycrawler'] #Database      
+        # Connection String
+        econnect = str(os.environ['Mongo_HOST'])
+        #self.client = pymongo.MongoClient('mongodb://mymongodb:27017')
+        self.client = pymongo.MongoClient('mongodb://'+econnect+':27017')
+        self.db = self.client['dbjobcrawler'] #Create Database      
         pass
     
     def process_item(self, item, spider):
         
-        collection =self.db['tbljob'] #Table
+        collection =self.db['tbljob'] #Create Collection or Table
         try:
             collection.insert_one(dict(item))
             return item
