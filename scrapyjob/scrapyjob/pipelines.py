@@ -46,7 +46,7 @@ class CSVDBJobPipeline:
 class MongoDBJobPipeline:
     def __init__(self):
         # Connection String
-        econnect = str(os.environ['Mongo_HOST'])
+        econnect = str(os.environ['host'])
         #self.client = pymongo.MongoClient('mongodb://mymongodb:27017')
         self.client = pymongo.MongoClient('mongodb://'+econnect+':27017')
         self.db = self.client['dbjobcrawler'] #Create Database      
