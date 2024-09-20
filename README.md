@@ -9,5 +9,5 @@
 * sau này muốn dùng thì cứ gọi tên image thôi
 5. Để chạy container cào website thì dùng lệnh: docker container run -e host=mymongodb --network <tên network vừa tạo> --name <đặt tên cho container> <tên image cần dùng>
 * GHI CHÚ: -e đặt giá trị cho biến host là cái container mymongodb đang chạy ngầm , --network là đặt cổng mạng cho container , --name để đặt tên cho container
-6. Sau khi code chạy xong (finished) thì dùng lệnh: docker exec -it mymongodb mongo để kiểm tra dữ liệu nếu muốn
+6. Sau khi code chạy xong (finished) thì dùng lệnh: docker exec -it mymongodb mongosh để kiểm tra dữ liệu nếu muốn
 *** HẾT ***
