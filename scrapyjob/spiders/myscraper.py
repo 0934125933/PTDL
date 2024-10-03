@@ -27,16 +27,12 @@ class MyscraperSpider(scrapy.Spider):
 
         # thông tin tuyển dụng
         item['rank'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[1]/span[2]/text()').get()
-        item['industry'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[3]/span[2]/text()').get().strip()
         item['amount'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[5]/span[2]/text()').get().strip()
         item['age'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[7]/span[2]/text()').get().strip()
         item['level'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[9]/span[2]/text()').get()
         item['experience'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[2]/span[2]/text()').get()
         item['salary'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[4]/span[2]/text()').get().strip()
         item['headquarters'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[8]/span[2]/text()').get().strip()
-        item['Application_deadline'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[10]/span[2]/text()').get()
         item['technical_requirements'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[5]/div/p/text()').getall()
-        item['welfare'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[3]/p/text()').getall()
-        item['describe'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[4]/div/p/text()').getall()
 
         yield item

@@ -1,0 +1,14 @@
+- Yêu cầu xử lí dữ liệu (PTDL):
+	+ Cột jobname tách tên công việc với mã công việc
+	+ Cột Số lượng tách Nam và nữ (cụ thể bao nhiêu nam và nữ, nếu sL 1 mà ko yêu cầu giới tính thì phải xử lí như nào)
+	+ Cột Tuổi phải đưa về 1 khoảng xác định (không được để chữ khoảng, trên hay dưới)
+	+ Cột Yêu cầu kinh nghiệm phải xử lí làm sao để các ô về chung 1 kiểu dữ liệu không được tồn tại vừa chữ và số
+	+ Cột Lương đưa về cùng 1 kiểu dữ liệu (Thoả thuận đưa về kiểu số hoặc điền yếu vị)
+	+ Cột Ngày cập nhật bỏ cái chữ đi
+- Bỏ các cột: 
+	+ Application_deadline
+	+ Welfare
+	+ Describe
+	+ Headquarters
+	+ Industry
+

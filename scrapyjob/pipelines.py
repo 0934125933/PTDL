@@ -14,6 +14,8 @@ import pymongo
 import mysql.connector
 import psycopg2
 import os
+from pyspark.sql import SparkSession
+
 
 class JsonDBJobPipeline:
 
@@ -31,9 +33,8 @@ class JsonDBJobPipeline:
 class CSVDBJobPipeline:
     def process_item(self, item, spider):
         with open('job_data.csv', 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['courseUrl', 'job_name', 'name_company', 'upadte_date', 'rank','industry','amount','age','level',
-                          'experience','salary','headquarters','Application_deadline','technical_requirements','welfare',
-                          'describe']
+            fieldnames = ['courseUrl', 'job_name', 'name_company', 'upadte_date', 'rank','amount','age','level',
+                          'experience','salary','headquarters','technical_requirements']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=',')
 
             # Kiểm tra nếu file CSV chưa có header thì ghi header
@@ -47,8 +48,9 @@ class MongoDBJobPipeline:
     def __init__(self):
         # Connection String
         econnect = str(os.environ['host'])
-        #self.client = pymongo.MongoClient('mongodb://mymongodb:27017')
-        self.client = pymongo.MongoClient('mongodb://'+econnect+':27017/')
+        self.client = pymongo.MongoClient('mongodb://'+econnect+':27018/')
+        # self.client = pymongo.MongoClient('mongodb://'mymongodb':27017/')
+        # self.client = pymongo.MongoClient('mongodb://localhost:27017')
         self.db = self.client['dbjobcrawler'] #Create Database      
         pass
     
