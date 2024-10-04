@@ -3,7 +3,7 @@
 1. Sau khi clone về để chạy được thì nhớ dùng cmd trong VScode chứ đừng có dùng Powershell
 2. Trong cmd nhập lệnh: docker network create <đặt tên network> để tạo sẵn 1 cái địa chỉ network cho mình
 * mỗi lần kết nối mạng khác là sẽ có cái IP khác nên phải tạo lại chứ ko phải là sài lại cái cũ đâu nhá
-4. Dùng lệnh: docker run -d -p 27017:27017 --name mymongodb mongo để chạy ngầm cái container mymongodb này
+3. Dùng lệnh: docker run -d -p 27017:27017 --name mymongodb mongo để chạy ngầm cái container mymongodb này
 * dùng để LƯU DỮ LIỆU sau khi cào.. KO CHẠY là lúc cào nó BÁO LỖI VỚI DELAY SML ráng chịu
 * Nếu chạy lệnh này trên máy ảo thì nhớ thêm --network <tên network vừa tạo> vào trong câu lệnh đưa ip mạng về cùng 1 địa chỉ
 4. Dùng lệnh: docker build -t <đặt tên image> để lưu tất cả file code trên Repo này vào trong image
