@@ -37,29 +37,26 @@ docker container run -e host=mymongodb --network <tên network vừa tạo> --na
 
 * Khuyến khích là nên dùng SSH trên CMD để thực hiện từ bước này vì nó tiện dễ copy paste
 * Lệnh dùng để kết nối với máy ảo bằng CMD: ```ssh <tên máy ảo>@<ip máy ảo>``` Nếu không biết IP thì vào máy ảo dùng lệnh ifconfig rồi xem IP nào đúng là kết nối được.
+
+### 4. Push xong rồi thì vào máy ảo pull về thôi: ```Docker pull <tên tài khoản>/<tên Repo><:tên tagname nếu có>```
+* Nó y chang lúc pull image trên Docker máy chính á, khác cái là mình không dùng tên bình thường được
+### 5. Tạo network
+```python
+sudo docker network create <đặt tên network>
+```
+### 6. Chạy ngầm container MongoDB
+```python
+sudo docker container run -d -p 27017:27017 --network <tên network đã tạo> --name <đặt tên container> mongo:4.0
+```
+### 7. Chạy container CrawlData
+```python
+sudo docker container run -e host=<tên container MongoDB> --network <tên network đã tạo> --name <đặt tên container> <tên image đã pull>
+```
+* Lưu ý ở đây là khi thực hiện lệnh ```docker run -d -p 27017:27017 --name mymongodb mongo``` thì
+* đổi cái ```mongo``` thành ```mongo:4.0``` vì cái mongo phiên bản cao cấp **KHÔNG HỖ TRỢ MÁY CÙI BẮP**
+* thêm ```--network <tên network vừa tạo>``` **NHƯ ĐÃ NHẮC Ở TRÊN**
 # *Lưu ý là phải tải được net-tools,openssh với Docker thì mới xem IP với dùng lệnh Docker được nha*
 ### BONUS link cài MongoDB trên máy ảo: [tại đây](https://github.com/0934125933/PTDL/blob/main/InstallMongoDB.md)
 ### VÀO MÁY ẢO RỒI THÌ NHỚ DÙM LÀ BẮT ĐẦU DÒNG LỆNH PHẢI CÓ ```sudo``` ĐỂ NÓ CẤP QUYỀN ADMIN
 
 * Không biết tải Docker thì xem file [upgradesystem](https://github.com/0934125933/PTLDSource/blob/main/upgradesystem) của Mr.Nam
-### 4. Push xong rồi thì vào máy ảo pull về thôi: ```Docker pull <tên tài khoản>/<tên Repo><:tên tagname nếu có>```
-* Nó y chang lúc pull image trên Docker máy chính á, khác cái là mình không dùng tên bình thường được
-### 5. Pull rồi thì làm lại **CÁC BƯỚC Ở TRÊN MÁY CHÍNH** nhưng khác vài chỗ.
-
-#### 5.1. Tạo network
-```python
-sudo docker network create <đặt tên network>
-```
-#### 5.2. Chạy ngầm container MongoDB
-```python
-sudo docker container run -d -p 27017:27017 --network <tên network đã tạo> --name <đặt tên container> mongo:4.0
-```
-#### 5.3. Chạy container CrawlData
-```python
-sudo docker container run -e host=<tên container MongoDB> --network <tên network đã tạo> --name <đặt tên container> <tên image đã pull>
-```
-* Lưu ý ở đây là khi thực hiện lệnh ```docker run -d -p 27017:27017 --name mymongodb mongo``` thì
-* đổi cái mongo thành mongo:4.0 vì cái mongo phiên bản cao cấp **KHÔNG HỖ TRỢ MÁY CÙI BẮP**
-* thêm --network <tên network vừa tạo> **NHƯ ĐÃ NHẮC Ở TRÊN**
-
-# HẾT
