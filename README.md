@@ -1,4 +1,4 @@
-# Các bước để chạy container khi clone Repo này về
+# CÁC BƯỚC ĐỂ CHẠY CONTAINER KHI clone REPOS NÀY VỀ
 ## TRÊN MÁY CHÍNH
 ### 1. Sau khi clone về để chạy được thì nhớ dùng cmd trong VScode chứ đừng có dùng Powershell
 ### 2. Trong cmd nhập lệnh: ```Docker network create <đặt tên network>``` để tạo sẵn 1 cái địa chỉ network cho mình
