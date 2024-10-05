@@ -38,7 +38,7 @@ docker container run -e host=mymongodb --network <tên network vừa tạo> --na
 * Khuyến khích là nên dùng SSH trên CMD để thực hiện từ bước này vì nó tiện dễ copy paste
 * Lệnh dùng để kết nối với máy ảo bằng CMD: ```ssh <tên máy ảo>@<ip máy ảo>``` Nếu không biết IP thì vào máy ảo dùng lệnh ifconfig rồi xem IP nào đúng là kết nối được.
 # *Lưu ý là phải tải được net-tools,openssh với Docker thì mới xem IP với dùng lệnh Docker được nha*
-### BONUS link cài MongoDB trên máy ảo: [tại đây]([https://www.mongodb.com/docs/v4.4/tutorial/install-mongodb-on-ubuntu/](https://github.com/0934125933/PTDL/blob/main/InstallMongoDB.md))
+### BONUS link cài MongoDB trên máy ảo: [tại đây](https://github.com/0934125933/PTDL/blob/main/InstallMongoDB.md)
 ### VÀO MÁY ẢO RỒI THÌ NHỚ DÙM LÀ BẮT ĐẦU DÒNG LỆNH PHẢI CÓ ```sudo``` ĐỂ NÓ CẤP QUYỀN ADMIN
 
 * Không biết tải Docker thì xem file [upgradesystem](https://github.com/0934125933/PTLDSource/blob/main/upgradesystem) của Mr.Nam
