@@ -29,7 +29,7 @@ docker container run -e host=mymongodb --network <tên network vừa tạo> --na
 
 ## TRÊN MÁY ẢO
 
-### 1. Ngoài việc CLONE cái Respository này về, sau khi dùng lệnh 'docker build -t <đặt tên image> .' xong thì ...
+### 1. Ngoài việc CLONE cái Respository này về, sau khi dùng lệnh ```docker build -t <đặt tên image> .``` xong thì ...
 ### 2. Dùng lệnh ```Docker tag <tên image> <tên tài khoản dockerhub>/<đặt tên repository>``` để tạo một cái tag định danh cho Repository
 * Lệnh này dùng để phân biệt và cấp phép cho cái image này được phép push lên Dockerhub
 * Ngoài ra có thể thêm ```:<đặt tên tagname/tên nhánh>``` để phân biệt sự thay đổi giữa các lần push image lên Hub (nếu không ghi thì mặc định là latest)
