@@ -65,6 +65,6 @@ wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubun
 ```python
 sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
 ```
-### làm xong thì quay lại bước 5
+### [làm xong thì quay lại bước 5](https://github.com/0934125933/PTDL/blob/main/InstallMongoDB.md#5-c%C3%A0i-%C4%91%E1%BA%B7t-mongodb)
 # Tại sao lại dùng bản 4.4
 ## NHƯ ĐÃ NÓI: "MÁY CÙI" không sài được bản cao cấp
