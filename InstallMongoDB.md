@@ -19,6 +19,7 @@ sudo apt-get update
 ```python
 sudo apt-get install -y mongodb-org
 ```
+* [Fix lỗi ```libssl>1,1```](https://github.com/0934125933/PTDL/blob/main/InstallMongoDB.md#l%E1%BB%97i-libssl11)
 ### 6. Dùng các lệnh này để ngăn không cho MongoDB tự động update:
 ```python
 echo "mongodb-org hold" | sudo dpkg --set-selections
