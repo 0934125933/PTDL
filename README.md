@@ -42,17 +42,20 @@ docker container run -e host=mymongodb --network <tên network vừa tạo> --na
 ### VÀO MÁY ẢO RỒI THÌ NHỚ DÙM LÀ BẮT ĐẦU DÒNG LỆNH PHẢI CÓ ```sudo``` ĐỂ NÓ CẤP QUYỀN ADMIN
 
 * Không biết tải Docker thì xem file [upgradesystem](https://github.com/0934125933/PTLDSource/blob/main/upgradesystem) của Mr.Nam
-4. Push xong rồi thì vào máy ảo pull về thôi: ```Docker pull <tên tài khoản>/<tên Repo><:tên tagname nếu có>```
+### 4. Push xong rồi thì vào máy ảo pull về thôi: ```Docker pull <tên tài khoản>/<tên Repo><:tên tagname nếu có>```
 * Nó y chang lúc pull image trên Docker máy chính á, khác cái là mình không dùng tên bình thường được
-5. Pull rồi thì làm lại **CÁC BƯỚC Ở TRÊN MÁY CHÍNH** nhưng khác vài chỗ.
+### 5. Pull rồi thì làm lại **CÁC BƯỚC Ở TRÊN MÁY CHÍNH** nhưng khác vài chỗ.
+
+#### 5.1. Tạo network
 ```python
-1. Tạo network
 sudo docker network create <đặt tên network>
-
-2. Chạy ngầm container MongoDB
+```
+#### 5.2. Chạy ngầm container MongoDB
+```python
 sudo docker container run -d -p 27017:27017 --network <tên network đã tạo> --name <đặt tên container> mongo:4.0
-
-3. Chạy container CrawlData
+```
+#### 5.3. Chạy container CrawlData
+```python
 sudo docker container run -e host=<tên container MongoDB> --network <tên network đã tạo> --name <đặt tên container> <tên image đã pull>
 ```
 * Lưu ý ở đây là khi thực hiện lệnh ```docker run -d -p 27017:27017 --name mymongodb mongo``` thì
