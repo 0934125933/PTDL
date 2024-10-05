@@ -1,4 +1,4 @@
-# CÁC BƯỚC CÀI ĐẶT MongoDB TRÊN MÁY ẢO
+# CÁC BƯỚC CÀI ĐẶT MongoDB(v4.4) TRÊN MÁY ẢO
 
 ### 1. Dùng lệnh: ```sudo apt-get install gnupg curl``` để cấu hình thư viện cần thiết
 ### 2. Copy dòng dưới để import key cho MongoDB:
@@ -55,9 +55,8 @@ sudo systemctl enable mongod
 ```python
 sudo systemctl stop mongod
 ```
-# Lưu Ý: trong quá trình cài đặt MongoDB nếu gặp lỗi nào có ghi ```libssl>1.1``` 
-## làm thêm các bước sau trước khi quay lại bước 5
-
+# Lưu Ý: trong quá trình cài đặt MongoDB nếu gặp lỗi 
+## LỖI ```libssl>1.1``` 
 ### 1. Dùng lệnh này để lấy file cài đặt libssl(1.1):
 ```python
 wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
@@ -66,3 +65,6 @@ wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubun
 ```python
 sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
 ```
+### làm xong thì quay lại bước 5
+# Tại sao lại dùng bản 4.4
+## NHƯ ĐÃ NÓI: "MÁY CÙI" không sài được bản cao cấp
