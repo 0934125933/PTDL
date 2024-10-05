@@ -44,7 +44,17 @@ docker container run -e host=mymongodb --network <tên network vừa tạo> --na
 * Không biết tải Docker thì xem file [upgradesystem](https://github.com/0934125933/PTLDSource/blob/main/upgradesystem) của Mr.Nam
 4. Push xong rồi thì vào máy ảo pull về thôi: ```Docker pull <tên tài khoản>/<tên Repo><:tên tagname nếu có>```
 * Nó y chang lúc pull image trên Docker máy chính á, khác cái là mình không dùng tên bình thường được
-5. Pull rồi thì làm y chang như **CÁC BƯỚC Ở TRÊN MÁY CHÍNH**.
+5. Pull rồi thì làm lại **CÁC BƯỚC Ở TRÊN MÁY CHÍNH** nhưng khác vài chỗ.
+```python
+1. Tạo network
+sudo docker network create <đặt tên network>
+
+2. Chạy ngầm container MongoDB
+sudo docker container run -d -p 27017:27017 --network <tên network đã tạo> --name <đặt tên container> mongo:4.0
+
+3. Chạy container CrawlData
+sudo docker container run -e host=<tên container MongoDB> --network <tên network đã tạo> --name <đặt tên container> <tên image đã pull>
+```
 * Lưu ý ở đây là khi thực hiện lệnh ```docker run -d -p 27017:27017 --name mymongodb mongo``` thì
 * đổi cái mongo thành mongo:4.0 vì cái mongo phiên bản cao cấp **KHÔNG HỖ TRỢ MÁY CÙI BẮP**
 * thêm --network <tên network vừa tạo> **NHƯ ĐÃ NHẮC Ở TRÊN**
