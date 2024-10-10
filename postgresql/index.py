@@ -19,8 +19,8 @@ def create_table(pg_cursor):
 
 # Kết nối tới MongoDB
 mongo_client = MongoClient('mongodb://localhost:27017/')
-mongo_db = mongo_client['dbmycrawler']
-mongo_collection = mongo_db['tblunitop']
+mongo_db = mongo_client['dbjobcrawler']
+mongo_collection = mongo_db['tbljob']
 
 # Kết nối tới PostgreSQL
 pg_conn = psycopg2.connect(
@@ -45,6 +45,8 @@ try:
         # Giả sử document có các trường: coursename, lecturer, intro, describe, votenumber, rating, newfee, oldfee, lessonnum
         pg_cursor.execute(
             """
+
+            
             INSERT INTO courses (coursename, lecturer, intro, describe, votenumber, rating, newfee, oldfee, lessonnum)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """,

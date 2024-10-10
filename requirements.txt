@@ -6,3 +6,5 @@ itemadapter
 pymongo
 mysql.connector
 psycopg2
+pyspark
+sqlalchemy

@@ -7,7 +7,7 @@ class MyscraperSpider(scrapy.Spider):
     # start_urls = ['https://sieuthivieclam.vn/tim-viec-lam/']
 
     def start_requests(self):
-        for page_number in range(1,51):
+        for page_number in range(1,2):
             yield scrapy.Request(url=f'https://sieuthivieclam.vn/tim-viec-lam/trang-{page_number}.html'.format(page_number),callback=self.parse) 
 
     def parse(self, response):
@@ -27,12 +27,11 @@ class MyscraperSpider(scrapy.Spider):
 
         # thông tin tuyển dụng
         item['rank'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[1]/span[2]/text()').get()
-        item['amount'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[5]/span[2]/text()').get().strip()
+        item['amount'] = response.xpath('normalize-space(//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[5]/span[2]/text())').get().strip()
         item['age'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[7]/span[2]/text()').get().strip()
         item['level'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[9]/span[2]/text()').get()
         item['experience'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[2]/span[2]/text()').get()
         item['salary'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[4]/span[2]/text()').get().strip()
         item['headquarters'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[2]/ul/li[8]/span[2]/text()').get().strip()
-        item['technical_requirements'] = response.xpath('//*[@id="main"]/div[1]/div/div/div[1]/div/div[5]/div/p/text()').getall()
-
+        item['technical_requirements'] = response.xpath('(//*[@id="main"]/div[1]/div/div/div[1]/div/div[5]/div/p/text())').getall()
         yield item

@@ -70,8 +70,9 @@ AUTOTHROTTLE_START_DELAY = 0
 ITEM_PIPELINES = {
     # 'scrapyjob.pipelines.JsonDBJobPipeline': 50,
     # "scrapyjob.pipelines.CSVDBJobPipeline": 100,
-   "scrapyjob.pipelines.JsonDBJobPipeline": 100,
-   "scrapyjob.pipelines.CSVDBJobPipeline": 200,
+    "scrapyjob.pipelines.PySparkPipeLine": 50,
+    "scrapyjob.pipelines.JsonDBJobPipeline": 100,
+    "scrapyjob.pipelines.CSVDBJobPipeline": 200,
    "scrapyjob.pipelines.MongoDBJobPipeline": 400
 }
 
